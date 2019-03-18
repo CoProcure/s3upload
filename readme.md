@@ -1,6 +1,6 @@
 # S3 Upload
 
-This package contains some boilerplate code around the ```s3-upload-stream``` package for uploading to S3.
+This package contains boilerplate code around s3-upload-stream to make S3 uploads easier.
 
 To use first set your AWS credentials on the command line. If you have a company profile named set of credentials in ```~./aws/credentails```:
 
