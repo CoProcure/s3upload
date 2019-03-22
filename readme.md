@@ -10,7 +10,7 @@ export AWS_PROFILE=coprocure
 
 Require this module in your code like:
 ```
-const uploadS3 = require('./upload-s3.js');
+const uploadS3 = require('@coprocure/s3upload');
 ```
 
 Call this function passing your local file location and desired destination and bucker params like:
@@ -23,7 +23,7 @@ The fileLocation is the relative local path to the file you want to upload. The 
 
 ```
 let fileLocation = 'files/AM10-18/911-Fleet-and-Fire-Equipment-Holdings/911-Fleet-and-Fire-Equipment-Holdings.pdf';
-let fileDestination = "/pathonS3/911-Fleet-and-Fire-Equipment-Holdings.pdf";
+let fileDestination = "pathonS3/911-Fleet-and-Fire-Equipment-Holdings.pdf";
 let bucket = 'docs.coprocure.us';
 ```
 
@@ -33,3 +33,6 @@ Optionally include bucket and content-type parameters in the function call:
 uploadS3(fileLocation, fileDestination, bucket, 'application/pdf')
 ```
 
+# Warning
+
+When passing the destination path value for where you want the file stored on S3 do not start with a /. Passing a path starting with slash causes the rest of the / values in the path to be urlencoded and you end up with a long filename at the root of your bucket.
